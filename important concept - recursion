@@ -1,0 +1,40 @@
+//what will be the output
+
+#include <iostream>
+
+using namespace std;
+
+void fun(int n){
+    if(n == 0){
+        return ;
+    }
+    cout<<n<<endl;
+    fun(n--);
+}
+
+int main(){
+    fun(5);
+}
+
+=> it will be printing 5 infinite times  .
+
+q. what will be the output of following
+
+#include <iostream>
+
+using namespace std;
+
+void fun(int n){
+    if(n == 0){
+        return ;
+    }
+    cout<<n<<endl;
+    fun(--n);
+}
+
+int main(){
+    fun(5);
+}
+
+
+==> 5 4 3 2 1 
