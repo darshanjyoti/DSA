@@ -1,0 +1,26 @@
+using namespace std;
+
+//binary search using recursion
+
+bool binarySerach(int arr[], int start, int end, int target){
+    //base condition
+    if(start>end)
+        return false;
+    int med = start + (end - start)/2;
+    
+    if(arr[med] == target)
+        return true;
+    
+    if(target > arr[med])
+    //search in the second half
+        return binarySerach(arr, med+1 , end, target);
+    //search in the first half
+    return binarySerach(arr, start, med-1, target);
+        
+}
+
+int main(){
+    int arr[5] = {1,2,3,4,5};
+    std::cout << binarySerach(arr, 0, 4, 3) << std::endl;
+   
+}
