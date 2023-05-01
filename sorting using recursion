@@ -1,0 +1,45 @@
+#include <iostream>
+
+using namespace std;
+
+//check an array is sorted(asceding) or not
+bool isSorted(int arr[], int size, int i){
+    if(size == 1)
+        return true;
+    return ((arr[i]<arr[i+1]) && isSorted(arr,size-1,i+1));
+    
+}
+
+int main(){
+    int arr[5]= {1,2,3,4,5};
+    cout<<isSorted(arr,5,0);
+}
+
+//or 
+#include <iostream>
+
+using namespace std;
+
+//check an array is sorted(asceding) or not
+bool isSorted(int arr[], int size){
+    //base condition
+    if(size == 0 || size == 1)
+        return true;
+   //check first two element is sorted or not
+   if(arr[0]>arr[1])
+        return false;
+    
+    //check for the smaller array
+    bool isSmallerArraySorted =  isSorted(arr+1, size - 1);
+    return isSmallerArraySorted;
+    
+}
+
+int main(){
+    int arr[5]= {1,2,3,4,5};
+    cout<<isSorted(arr,5)<<endl;
+    
+    int arr1[5]= {2,14,10,1,4};
+    cout<<isSorted(arr1,5);
+}
+
