@@ -1,0 +1,66 @@
+
+#include<iostream>
+
+//selection short
+
+
+//algo => swap two adjacent element if they are not in correct order untill array is sorted
+
+void swapValue(int &a, int &b)
+{
+    int temp = a;
+    a=b;
+    b =temp;
+}
+
+void bubbleSort(int arr[], int n)
+{
+    
+    for(int i=0; i<n-1; i++){
+        //optimization
+        int isSwapped = 0;
+        for(int j = 0; j<n-1-i; j++){
+            if(arr[j] > arr[j+1]){
+                swapValue(arr[j],arr[j+1]);
+                isSwapped = 1;
+            }
+            
+        }
+        //for optimization
+        if(isSwapped == 0)
+            {
+                break;
+            }
+        
+    }
+}
+
+void printArray(int arr[], int n)
+{
+    for(int i = 0; i<n ;i++){
+        
+        std::cout<<arr[i]<<" ";
+    }
+    std::cout<<std::endl;
+}
+
+
+int main()
+{
+    int arr[] = {12,1,32,8,76,3,0,19};
+    
+    int n = sizeof(arr)/sizeof(arr[0]);
+    
+    std::cout<<"Before sorting"<<std::endl;
+    printArray(arr, n);
+    
+    bubbleSort(arr,n);
+    
+    std::cout<<"After sorting"<<std::endl;
+    
+    printArray(arr,n);
+    
+    //worst and average TC is o(n^2)
+    //best TC is o(n) when the given array is already sorted. (with above optimizaation)
+    
+}
